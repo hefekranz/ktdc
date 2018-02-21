@@ -1,0 +1,12 @@
+hash: b04eb53739f10c1137053f557e0ec6d7910ee1805f1f24666a11cd2783d08bb7
+updated: 2018-02-21T12:38:22.704367123+01:00
+imports:
+- name: github.com/ghodss/yaml
+  version: 0ca9ea5df5451ffdf184b4428c902747c2c11cd7
+- name: github.com/pkg/errors
+  version: 645ef00459ed84a119197bfb8d8205042c6df63d
+- name: github.com/tidwall/gjson
+  version: 87033efcaec6215741137e8ca61952c53ef2685d
+- name: gopkg.in/yaml.v2
+  version: d670f9405373e636a5a2765eea47fac0c9bc91a4
+testImports: []

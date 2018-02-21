@@ -1,0 +1,8 @@
+package: hefekranz/ktdc
+import:
+- package: github.com/tidwall/gjson
+  version: ~1.0.6
+- package: github.com/ghodss/yaml
+  version: ~1.0.0
+- package: github.com/pkg/errors
+  version: ~0.8.0

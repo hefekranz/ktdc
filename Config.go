@@ -9,4 +9,5 @@ type ServiceConfig struct {
 	Repository string
 	DeploymentFile string `json:"deploymentFile"`
 	Envs map[string]string
+	Ports []string
 }

@@ -43,6 +43,8 @@ func addConfig(service DcService,config Config)  DcService{
 		for k,v := range serviceConfig.Envs {
 			service.setEnv(k,v)
 		}
+
+		service.Ports = serviceConfig.Ports
 	}
 
 	return service

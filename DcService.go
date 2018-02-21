@@ -11,6 +11,7 @@ type DcService struct {
 	Ports []string              `json:"ports,omitempty"`
 	Environment []UnixEnvString `json:"environment,omitempty"`
 	Logging Logging `json:"logging,omitempty"`
+	Command string `json:"command,omitempty"`
 }
 
 func (s *DcService) addEnv(key string, value string)  {

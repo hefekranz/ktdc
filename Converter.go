@@ -45,6 +45,7 @@ func addConfig(service DcService,config Config)  DcService{
 		}
 
 		service.Ports = serviceConfig.Ports
+		service.Command = serviceConfig.Command
 	}
 
 	return service

@@ -8,37 +8,36 @@ type Converter interface {
 
 func Convert(kubeFiles map[string]KubeDeployment, dcFile *DcFile, config Config) {
 
-	for k := range config.Services {
+	for name := range config.Services {
 
-		deployment, ok := kubeFiles[k]
+		deployment, ok := kubeFiles[name]
 		if !ok {
-			log.Println("key " + k + " not found")
+			log.Println("key " + name + " not found")
 			continue
 		}
 
-		service := buildServiceFromKubernetes(k,deployment)
+		service := buildServiceFromKubernetes(deployment)
 
-		dcFile.addService(k, addConfig(service,config))
+		dcFile.addService(name, addConfig(name,service,config))
 	}
 }
 
-func buildServiceFromKubernetes(name string, deployment KubeDeployment) DcService{
+func buildServiceFromKubernetes(deployment KubeDeployment) DcService{
 	service := DcService{}
 	service.Image = deployment.getImage()
-	service.ContainerName = name
 	for _, v := range deployment.getEnvs() {
 		service.addEnv(v.Name, v.Value)
 	}
 	return service
 }
 
-func addConfig(service DcService,config Config)  DcService{
+func addConfig(name string ,service DcService,config Config)  DcService{
 
 	for k,v := range config.GlobalEnvs {
 		service.overwriteEnv(k,v)
 	}
 
-	serviceConfig, ok := config.Services[service.ContainerName]
+	serviceConfig, ok := config.Services[name]
 	if ok {
 		for k,v := range serviceConfig.Envs {
 			service.setEnv(k,v)

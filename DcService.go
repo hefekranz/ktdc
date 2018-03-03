@@ -7,7 +7,7 @@ import (
 
 type DcService struct {
 	Image string                `json:"image"`
-	ContainerName string        `json:"container_name"`
+	ContainerName string        `json:"container_name,omitempty"`
 	Ports []string              `json:"ports,omitempty"`
 	Environment []UnixEnvString `json:"environment,omitempty"`
 	Logging Logging `json:"logging,omitempty"`
